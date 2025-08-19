@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speak Easy with Vito | Заговорите на английском без страха</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            background: linear-gradient(180deg, #fefefe 0%, #f8f4f0 100%);
+        }
+        
+        :root {
+            --primary: #ff6b4a;
+            --secondary: #4a90e2;
+            --accent: #ffd93d;
+            --success: #27ae60;
+            --warm-gray: #6c757d;
+            --light-bg: #fff9f5;
+            --gradient: linear-gradient(135deg, #ff6b4a 0%, #ff8e53 100%);
+            --text-dark: #2c3e50;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Современный хедер */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.6em;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo::before {
+            content: "🌍";
+            font-size: 1.2em;
+        }
+        
+        .contacts {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .contact-item {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .contact-item:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .telegram-btn {
+            background: var(--gradient);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255,107,74,0.3);
+            font-weight: 500;
+        }
+        
+        .telegram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,107,74,0.4);
+        }
+        
+        /* Hero секция с современным дизайном */
+        .hero {
+            padding: 80px 0;
+            background: white;
+            border-radius: 30px;
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,107,74,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text h1 {
+            font-size: 3em;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            line-height: 1.2;
+            font-weight: 800;
+        }
+        
+        .hero-text h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: var(--warm-gray);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .pain-points {
+            background: linear-gradient(135deg, #fff9f5 0%, #ffefeb 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(255,107,74,0.1);
+        }
+        
+        .pain-point {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .pain-point span {
+            font-size: 1.5em;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        .pain-point strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .hero-image {
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .expert-badge {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.95);
+        }
+        
+        .expert-badge strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 5px 20px rgba(255,107,74,0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,107,74,0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Проблемы и решения с градиентом */
+        .problems {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 30px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .problems::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .problems h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 60px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .problem-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .problem-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            color: white;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .problem-card h3 {
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .problem-card .problem {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0.9;
+        }
+        
+        .problem-card .solution {
+            color: #a8f5a8;
+            font-weight: 500;
+        }
+        
+        /* Miro секция с современным дизайном */
+        .miro-showcase {
+            padding: 100px 0;
+            background: white;
+            border-radius: 30px;
+            margin: 50px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .miro-showcase h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        
+        .miro-subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: var(--warm-gray);
+            margin-bottom: 60px;
+        }
+        
+        .miro-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .miro-placeholder {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+        
+        .miro-placeholder:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .miro-placeholder img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .miro-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .miro-feature {
+            text-align: center;
+            padding: 30px;
+            background: var(--light-bg);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        
+        .miro-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .miro-feature .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+        
+        .miro-feature h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Методика с карточками */
+        .approach {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f8f4f0 0%, #ffffff 100%);
+        }
+        
+        .approach h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        
+        .approach-subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: var(--warm-gray);
+            margin-bottom: 60px;
+        }
+        
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .approach-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .approach-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .approach-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        
+        .approach-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .approach-card li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .approach-card li:before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        
+        /* Гарантии с современным стилем */
+        .guarantees {
+            padding: 100px 0;
+            background: white;
+            border-radius: 30px;
+            margin: 50px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .guarantee-box {
+            background: var(--gradient);
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255,107,74,0.3);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guarantee-box::before {
+            content: "100%";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            font-size: 150px;
+            font-weight: bold;
+            opacity: 0.1;
+        }
+        
+        .guarantee-box h2 {
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .guarantee-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .guarantee-item {
+            padding: 25px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+        
+        .guarantee-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-5px);
+        }
+        
+        .guarantee-item .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+        }
+        
+        /* О преподавателе с фото и благотворительностью */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f4f0 100%);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .credentials {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px;
+        }
+        
+        .credentials h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.5em;
+        }
+        
+        .credentials ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .credentials li {
+            margin-bottom: 20px;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.8;
+        }
+        
+        .credentials li:before {
+            content: "🎓";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+        
+        .about-text h2 {
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: var(--warm-gray);
+        }
+        
+        .charity-section {
+            background: linear-gradient(135deg, #e8f5e9 0%, #fff3e0 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .charity-section h3 {
+            color: var(--success);
+            margin-bottom: 25px;
+            font-size: 1.6em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .charity-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .charity-image-placeholder {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+        
+        .charity-image-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .charity-image-placeholder img {
+            width: 100%;
+            height: auto;
+        }
+        
+        /* Отзывы с Авито и от учеников */
+        .testimonials {
+            padding: 100px 0;
+            background: white;
+            border-radius: 30px;
+            margin: 50px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 60px;
+            color: var(--text-dark);
+        }
+        
+        .avito-reviews {
+            margin-bottom: 80px;
+        }
+        
+        .avito-reviews h3 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2em;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .avito-reviews h3::before,
+        .avito-reviews h3::after {
+            content: "⭐⭐⭐⭐⭐";
+            font-size: 0.8em;
+        }
+        
+        .avito-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .avito-placeholder {
+            background: linear-gradient(135deg, #fff9f5 0%, #ffefeb 100%);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+        
+        .avito-placeholder:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .avito-placeholder img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            font-size: 60px;
+            color: var(--primary);
+            opacity: 0.2;
+        }
+        
+        .testimonial-card .quote {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: var(--warm-gray);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-card .author {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        .testimonial-card .details {
+            color: #95a5a6;
+            font-size: 0.95em;
+            margin-top: 5px;
+        }
+        
+        /* Цены с современным дизайном */
+        .pricing {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f8f4f0 0%, #ffffff 100%);
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        
+        .pricing-subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: var(--warm-gray);
+            margin-bottom: 60px;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 45px 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #ffffff 0%, #fff9f5 100%);
+        }
+        
+        .pricing-card.featured .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(255,107,74,0.3);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .pricing-card .lessons-count {
+            color: var(--warm-gray);
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        
+        .pricing-card .price {
+            font-size: 2.8em;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .pricing-card .price-per-lesson {
+            color: #95a5a6;
+            font-size: 0.95em;
+            margin-bottom: 25px;
+        }
+        
+        .pricing-card .savings {
+            background: linear-gradient(135deg, #e8f8f5 0%, #d4f1ee 100%);
+            color: var(--success);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 35px;
+            text-align: left;
+        }
+        
+        .pricing-card li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: var(--warm-gray);
+        }
+        
+        .pricing-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .single-lesson-info {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Финальный CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            border-radius: 30px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-cta::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .final-cta h2 {
+            font-size: 3em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .final-cta p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .final-cta .btn {
+            background: white;
+            color: var(--primary);
+            padding: 20px 50px;
+            font-size: 1.2em;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .final-cta .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        /* Футер */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            border-radius: 30px 30px 0 0;
+        }
+        
+        .footer-contacts {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-contacts a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1em;
+        }
+        
+        .footer-contacts a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero-content,
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 2em;
+            }
+            
+            .contacts {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .problem-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .charity-images {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Анимации при скролле */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Плавающие элементы */
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Хедер -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Speak Easy with Vito</div>
+                <div class="contacts">
+                    <a href="tel:+79617583398" class="contact-item">📞 +7 961 758-33-98</a>
+                    <a href="https://t.me/VITOPOSTANOGOV" class="telegram-btn">💬 Написать в Telegram</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero секция -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1>Перестаньте бояться <span>говорить</span> на английском</h1>
+                    <p class="subtitle">Научу говорить свободно, даже если вы учите язык годами и так и не заговорили</p>
+                    
+                    <div class="pain-points">
+                        <div class="pain-point">
+                            <span>😰</span>
+                            <div>
+                                <strong>Знакомо?</strong> "Всё понимаю, но сказать не могу"
+                            </div>
+                        </div>
+                        <div class="pain-point">
+                            <span>😵</span>
+                            <div>
+                                <strong>Грамматика</strong> кажется китайской грамотой?
+                            </div>
+                        </div>
+                        <div class="pain-point">
+                            <span>🤯</span>
+                            <div>
+                                <strong>Present Perfect</strong> так и остался загадкой?
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p style="font-size: 1.2em; color: var(--primary); margin-bottom: 30px;">
+                        <strong>Я знаю все ваши "тараканы" в голове</strong> и точно знаю, как от них избавиться
+                    </p>
+                    
+                    <div class="cta-buttons">
+                        <a href="#pricing" class="btn btn-primary">Записаться на пробный урок</a>
+                        <a href="#approach" class="btn btn-secondary">Как это работает?</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image float">
+                    <img src="chill-photo.jpg" alt="Vito - преподаватель английского">
+                    <div class="expert-badge">
+                        <strong>7+ лет опыта</strong>
+                        <span>600+ интерактивных уроков</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Проблемы и решения -->
+    <section class="problems">
+        <div class="container">
+            <h2>Почему вы до сих пор не говорите?</h2>
+            
+            <div class="problem-cards">
+                <div class="problem-card">
+                    <h3>🗣️ Страх говорения</h3>
+                    <div class="problem">
+                        <strong>Проблема:</strong> Боитесь ошибиться, долго подбираете слова, переводите с русского в голове
+                    </div>
+                    <div class="solution">
+                        <strong>Моё решение:</strong> С первого урока говорим! Создаю безопасную среду, где ошибки — это нормально. Учу думать сразу на английском.
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>📚 Грамматический ад</h3>
+                    <div class="problem">
+                        <strong>Проблема:</strong> 16 времён, условные предложения, герундий... Голова кругом!
+                    </div>
+                    <div class="solution">
+                        <strong>Моё решение:</strong> Объясняю логику, а не правила. Present Perfect за 5 минут? Легко! Показываю, что английская грамматика проще русской.
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>💭 "Учу-учу, а толку нет"</h3>
+                    <div class="problem">
+                        <strong>Проблема:</strong> Годы обучения, а результата нет. Слова забываются, правила путаются.
+                    </div>
+                    <div class="solution">
+                        <strong>Моё решение:</strong> Системный подход + практика на каждом уроке. Мои материалы построены так, что вы запоминаете без зубрёжки.
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>🎧 Не понимаю носителей</h3>
+                    <div class="problem">
+                        <strong>Проблема:</strong> Слитная быстрая речь — как шифр. Разные акценты сбивают с толку. Сами говорите с жутким русским акцентом.
+                    </div>
+                    <div class="solution">
+                        <strong>Моё решение:</strong> Научу понимать беглую речь носителей. Разберём британский и американский акценты. Поставлю правильное произношение звуков — заговорите без русского акцента!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Miro showcase -->
+    <section class="miro-showcase">
+        <div class="container">
+            <h2>600+ интерактивных уроков на Miro</h2>
+            <p class="miro-subtitle">Забудьте про скучные учебники — учимся через визуализацию и игры</p>
+            
+            <div class="miro-gallery">
+                <div class="miro-placeholder">
+                    <img src="animal-big.png" alt="Урок про животных на Miro">
+                </div>
+                <div class="miro-placeholder">
+                    <img src="travaling-big.png" alt="Урок про путешествия на Miro">
+                </div>
+                <div class="miro-placeholder">
+                    <img src="mems-big.png" alt="Интерактивные игры на Miro">
+                </div>
+            </div>
+            
+            <div class="miro-features">
+                <div class="miro-feature">
+                    <div class="icon">🎨</div>
+                    <h4>Визуальное обучение</h4>
+                    <p>Схемы, mind maps, инфографика</p>
+                </div>
+                <div class="miro-feature">
+                    <div class="icon">🎮</div>
+                    <h4>Игровые механики</h4>
+                    <p>Квесты, задания, челленджи</p>
+                </div>
+                <div class="miro-feature">
+                    <div class="icon">📊</div>
+                    <h4>Отслеживание прогресса</h4>
+                    <p>Видите свой путь и достижения</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Методика -->
+    <section class="approach" id="approach">
+        <div class="container">
+            <h2>Мой подход</h2>
+            <p class="approach-subtitle">Академическая база + расслабленная атмосфера = результат</p>
+            
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <h3>🎯 Практика с первой минуты</h3>
+                    <ul>
+                        <li>Говорим с первого урока (да, даже если вы "полный ноль")</li>
+                        <li>70% урока — ваша речь, а не мои лекции</li>
+                        <li>Реальные ситуации, а не "London is the capital"</li>
+                    </ul>
+                </div>
+                
+                <div class="approach-card">
+                    <h3>🧠 Понимание вместо зубрёжки</h3>
+                    <ul>
+                        <li>Объясняю логику языка простыми словами</li>
+                        <li>Связываю новое с тем, что вы уже знаете</li>
+                        <li>Никаких скучных правил — только то, что работает</li>
+                    </ul>
+                </div>
+                
+                <div class="approach-card">
+                    <h3>💻 Интерактивные уроки на Miro</h3>
+                    <ul>
+                        <li>600+ готовых визуальных уроков</li>
+                        <li>Игры, схемы, mind maps</li>
+                        <li>Всё наглядно и понятно</li>
+                    </ul>
+                </div>
+                
+                <div class="approach-card">
+                    <h3>📊 Системный подход</h3>
+                    <ul>
+                        <li>Чёткая программа от A1 до B2</li>
+                        <li>Регулярное отслеживание прогресса</li>
+                        <li>Подготовка к ОГЭ/ЕГЭ при необходимости</li>
+                    </ul>
+                </div>
+                
+                <div class="approach-card">
+                    <h3>🎓 Проверенные учебники + мои материалы</h3>
+                    <ul>
+                        <li>Работаю по Go Getter, Solutions, Prepare</li>
+                        <li>Дополняю авторскими материалами</li>
+                        <li>Адаптирую под ваши цели</li>
+                    </ul>
+                </div>
+                
+                <div class="approach-card">
+                    <h3>🤝 Личный подход</h3>
+                    <ul>
+                        <li>Знаю все отговорки и страхи взрослых учеников</li>
+                        <li>Поддержка между уроками в Telegram</li>
+                        <li>Домашки, которые хочется делать</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Гарантии -->
+    <section class="guarantees">
+        <div class="container">
+            <div class="guarantee-box">
+                <h2>Моя гарантия</h2>
+                <p style="font-size: 1.3em; margin-bottom: 30px; opacity: 0.95;">
+                    Каждый человек под моим руководством может освоить английский минимум до уровня B1
+                </p>
+                
+                <div class="guarantee-items">
+                    <div class="guarantee-item">
+                        <div class="icon">🎯</div>
+                        <h4>100% отдача</h4>
+                        <p>Я вкладываюсь в каждого ученика на максимум</p>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="icon">📈</div>
+                        <h4>Видимый прогресс</h4>
+                        <p>Уже через месяц вы почувствуете разницу</p>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="icon">🔄</div>
+                        <h4>Адаптация программы</h4>
+                        <p>Меняю подход, если что-то не работает</p>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="icon">💬</div>
+                        <h4>Постоянная поддержка</h4>
+                        <p>Отвечаю на вопросы между уроками</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О преподавателе с благотворительностью -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="credentials">
+                    <h3>Образование и опыт:</h3>
+                    <ul>
+                        <li>2 высших образования (юридическое + лингвистическое)</li>
+                        <li>Международные курсы ETJ English, TESOL/TEFL</li>
+                        <li>British Pronunciation Programme</li>
+                        <li>7+ лет преподавания</li>
+                        <li>Опыт жизни за границей</li>
+                    </ul>
+                </div>
+                
+                <div class="about-text">
+                    <h2>Почему я?</h2>
+                    <p>
+                        Привет! Я Vito, и я не просто преподаватель английского. Я тот, кто понимает все ваши страхи и сомнения, потому что сам через это прошёл.
+                    </p>
+                    <p>
+                        Я соединяю академический подход с человеческим общением. Никакой зауми и сложных терминов — объясняю так, чтобы понял каждый. При этом даю крепкую базу, которая останется с вами навсегда.
+                    </p>
+                    <p>
+                        За годы работы я выявил все типичные "глюки" и блоки, которые мешают взрослым заговорить. И знаю, как их обойти.
+                    </p>
+                    
+                    <div class="charity-section">
+                        <h3>🎗️ Веду уроки для детей с онкологией</h3>
+                        <p>
+                            Работаю с благотворительным фондом. Это научило меня находить подход к каждому и делать уроки интересными даже в самых сложных ситуациях.
+                        </p>
+                        <div class="charity-images">
+                            <div class="charity-image-placeholder">
+                                <img src="Beriginay-long.png" alt="Письмо благодарности от фонда">
+                            </div>
+                            <div class="charity-image-placeholder">
+                                <img src="Beriginay2.png" alt="Сертификат благотворительности">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы с Авито -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Что говорят ученики</h2>
+            
+            <!-- Отзывы с Авито -->
+            <div class="avito-reviews">
+                <h3>Отзывы с Авито (рейтинг 5.0)</h3>
+                <div class="avito-gallery">
+                    <div class="avito-placeholder">
+                        <strong>📱 ОТЗЫВ АВИТО #1</strong>
+                        <img src="avito-short.png" alt="Отзыв с Авито">
+                    </div>
+                    <div class="avito-placeholder">
+                        <strong>📱 ОТЗЫВ АВИТО #2</strong>
+                        <img src="avito-review2.jpg" alt="Отзыв с Авито">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Текстовые отзывы -->
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "После 10 лет изучения английского я наконец-то заговорила! Vito объяснил времена так просто, что я удивилась — почему раньше это казалось сложным?"
+                    </div>
+                    <div class="author">Елена, 35 лет</div>
+                    <div class="details">менеджер, уровень B1</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "Главное — пропал страх говорить. Теперь спокойно общаюсь с коллегами из Европы. А раньше потел от одной мысли о звонке на английском."
+                    </div>
+                    <div class="author">Михаил, 42 года</div>
+                    <div class="details">IT-специалист, уровень B2</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "Сын готовится к ОГЭ. За 3 месяца подтянул грамматику так, что учительница в школе не верит. А главное — ему нравится! Говорит, с Vito как с другом общается."
+                    </div>
+                    <div class="author">Ирина</div>
+                    <div class="details">мама ученика 9 класса</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "Present Perfect мучил меня годами. Vito объяснил за 5 минут через логику, а не правила. Теперь использую и не задумываюсь."
+                    </div>
+                    <div class="author">Андрей, 28 лет</div>
+                    <div class="details">дизайнер, уровень B1</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "Уроки на Miro — это что-то! Всё наглядно, интерактивно. Не замечаю, как пролетает час. И домашки делаю с удовольствием — они реально интересные."
+                    </div>
+                    <div class="author">Светлана, 31 год</div>
+                    <div class="details">маркетолог, уровень A2→B1</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "После первого же урока поняла — это мой преподаватель. Никакого занудства, всё по делу и с юмором. Прогресс пошёл сразу."
+                    </div>
+                    <div class="author">Мария, 39 лет</div>
+                    <div class="details">предприниматель, уровень B1</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Цены -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Стоимость обучения</h2>
+            <p class="pricing-subtitle">Выберите подходящий формат занятий</p>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Разовый урок</h3>
+                    <div class="lessons-count">1 занятие</div>
+                    <div class="price">1 500₽</div>
+                    <div class="price-per-lesson">за урок 60 минут</div>
+                    <ul>
+                        <li>Пробный урок</li>
+                        <li>Диагностика уровня</li>
+                        <li>План обучения</li>
+                        <li>Доступ к материалам урока</li>
+                    </ul>
+                    <a href="https://t.me/VITOPOSTANOGOV" class="btn btn-primary">Записаться</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Старт</h3>
+                    <div class="lessons-count">8 уроков</div>
+                    <div class="price">12 000₽</div>
+                    <div class="price-per-lesson">1 500₽ за урок</div>
+                    <ul>
+                        <li>2 урока в неделю (1 месяц)</li>
+                        <li>Все материалы включены</li>
+                        <li>Домашние задания</li>
+                        <li>Поддержка в Telegram</li>
+                    </ul>
+                    <a href="https://t.me/VITOPOSTANOGOV" class="btn btn-primary">Выбрать</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="badge">ПОПУЛЯРНЫЙ</div>
+                    <h3>Прогресс</h3>
+                    <div class="lessons-count">16 уроков</div>
+                    <div class="price">22 400₽</div>
+                    <div class="price-per-lesson">1 400₽ за урок</div>
+                    <div class="savings">Экономия 1 600₽</div>
+                    <ul>
+                        <li>2 урока в неделю (2 месяца)</li>
+                        <li>Все материалы включены</li>
+                        <li>Домашние задания</li>
+                        <li>Приоритетная поддержка</li>
+                        <li>Бонусные материалы</li>
+                    </ul>
+                    <a href="https://t.me/VITOPOSTANOGOV" class="btn btn-primary">Выбрать</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Результат</h3>
+                    <div class="lessons-count">24 урока</div>
+                    <div class="price">33 000₽</div>
+                    <div class="price-per-lesson">1 375₽ за урок</div>
+                    <div class="savings">Экономия 3 000₽</div>
+                    <ul>
+                        <li>2 урока в неделю (3 месяца)</li>
+                        <li>Все материалы включены</li>
+                        <li>Домашние задания</li>
+                        <li>VIP поддержка 24/7</li>
+                        <li>Все бонусные материалы</li>
+                        <li>Дополнительные разговорные практики</li>
+                    </ul>
+                    <a href="https://t.me/VITOPOSTANOGOV" class="btn btn-primary">Выбрать</a>
+                </div>
+            </div>
+            
+            <div class="single-lesson-info">
+                <p><strong>💡 Хотите заниматься полгода?</strong> Спросите про специальный абонемент на 48 уроков с максимальной выгодой!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Финальный CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Хватит откладывать!</h2>
+            <p>Каждый день без английского — это упущенные возможности</p>
+            <p style="font-size: 1.1em; opacity: 0.9; margin-bottom: 40px;">
+                Начните говорить уже через месяц занятий.<br>
+                Первый урок покажет, что английский — это не страшно!
+            </p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="https://t.me/VITOPOSTANOGOV" class="btn">
+                    Записаться на пробный урок
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-contacts">
+                <a href="tel:+79617583398">📞 +7 961 758-33-98</a>
+                <a href="https://t.me/VITOPOSTANOGOV">💬 Telegram: @VITOPOSTANOGOV</a>
+            </div>
+            <p style="opacity: 0.7;">© 2024 Speak Easy with Vito. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Плавная прокрутка к секциям
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Анимация при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Параллакс эффект для хедера
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let header = document.querySelector('header');
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body>
+</html>
