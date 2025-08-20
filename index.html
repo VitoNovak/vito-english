@@ -261,78 +261,94 @@
             transform: translateY(-3px);
         }
         
-        /* Проблемы и решения с градиентом */
-        .problems {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #fef5f1 0%, #ffe8e0 100%);
-            border-radius: 30px;
-            margin: 50px 0;
-            position: relative;
-            overflow: hidden;
-        }
+       <!-- Проблемы и решения -->
+<section class="problems" style="padding: 80px 0; background: #f8f9fa;">
+    <div class="container">
+        <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 20px; color: #2c3e50;">
+            Почему вы до сих пор не говорите?
+        </h2>
+        <p style="text-align: center; font-size: 1.3em; color: #7f8c8d; margin-bottom: 50px; font-weight: 300;">
+            Знакомые проблемы? У меня есть решение для каждой
+        </p>
         
-        .problems::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        
-        .problems h2 {
-            text-align: center;
-            font-size: 2.8em;
-            margin-bottom: 60px;
-            color: white;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .problem-cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .problem-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 35px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s;
-            color: white;
-        }
-        
-        .problem-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-        
-        .problem-card h3 {
-            margin-bottom: 20px;
-            font-size: 1.4em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .problem-card .problem {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            opacity: 0.9;
-        }
-        
-        .problem-card .solution {
-            color: #333333;
-            font-weight: 500;
-        }
+        <div class="problem-cards" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+            <!-- Карточка 1: Страх говорения -->
+            <div class="problem-card" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s;">
+                <h3 style="color: #e74c3c; margin-bottom: 20px; font-size: 1.3em;">
+                    🗣️ Страх говорения
+                </h3>
+                <div style="margin-bottom: 20px;">
+                    <strong style="color: #2c3e50;">Проблема:</strong>
+                    <p style="color: #7f8c8d; margin-top: 10px;">Боитесь ошибиться, долго подбираете слова, переводите с русского в голове</p>
+                </div>
+                <div>
+                    <strong style="color: #2c3e50;">Моё решение:</strong>
+                    <p style="color: #5a6c7d; margin-top: 10px;">С первого урока говорим! Создаю безопасную среду, где ошибки — это нормально. Учу думать сразу на английском.</p>
+                </div>
+            </div>
+            
+            <!-- Карточка 2: Грамматический ад -->
+            <div class="problem-card" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s;">
+                <h3 style="color: #e74c3c; margin-bottom: 20px; font-size: 1.3em;">
+                    📚 Грамматический ад
+                </h3>
+                <div style="margin-bottom: 20px;">
+                    <strong style="color: #2c3e50;">Проблема:</strong>
+                    <p style="color: #7f8c8d; margin-top: 10px;">16 времён, условные предложения, герундий... Голова кругом!</p>
+                </div>
+                <div>
+                    <strong style="color: #2c3e50;">Моё решение:</strong>
+                    <p style="color: #5a6c7d; margin-top: 10px;">Объясняю логику, а не правила. Present Perfect за 5 минут? Легко! Показываю, что английская грамматика проще русской.</p>
+                </div>
+            </div>
+            
+            <!-- Карточка 3: Учу-учу, а толку нет -->
+            <div class="problem-card" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s;">
+                <h3 style="color: #e74c3c; margin-bottom: 20px; font-size: 1.3em;">
+                    💭 "Учу-учу, а толку нет"
+                </h3>
+                <div style="margin-bottom: 20px;">
+                    <strong style="color: #2c3e50;">Проблема:</strong>
+                    <p style="color: #7f8c8d; margin-top: 10px;">Годы обучения, а результата нет. Слова забываются, правила путаются.</p>
+                </div>
+                <div>
+                    <strong style="color: #2c3e50;">Моё решение:</strong>
+                    <p style="color: #5a6c7d; margin-top: 10px;">Системный подход + практика на каждом уроке. Мои материалы построены так, что вы запоминаете без зубрёжки.</p>
+                </div>
+            </div>
+            
+            <!-- Карточка 4: Не понимаю носителей -->
+            <div class="problem-card" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s;">
+                <h3 style="color: #e74c3c; margin-bottom: 20px; font-size: 1.3em;">
+                    🎧 Не понимаю носителей
+                </h3>
+                <div style="margin-bottom: 20px;">
+                    <strong style="color: #2c3e50;">Проблема:</strong>
+                    <p style="color: #7f8c8d; margin-top: 10px;">Слитная быстрая речь — как шифр. Разные акценты сбивают с толку. Сами говорите с жутким русским акцентом.</p>
+                </div>
+                <div>
+                    <strong style="color: #2c3e50;">Моё решение:</strong>
+                    <p style="color: #5a6c7d; margin-top: 10px;">Научу понимать беглую речь носителей. Разберём британский и американский акценты. Поставлю правильное произношение звуков — заговорите без русского акцента!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Адаптивность для problem-cards */
+@media (max-width: 768px) {
+    .problem-cards {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Эффект при наведении */
+.problem-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+</style>
         
         /* Miro секция с современным дизайном */
         .miro-showcase {
